@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{% block Iberonex %}{% endblock %}</title>
+    {% include 'includes/mycss.html' %}
+
+     <!-- Custom CSS -->
+     {% block customCSS %} {% endblock %}
+</head>
+<body>
+
+    <!--
+        Declaro una variable la cual almacena toda la informacion del 
+        usuario logueado, esta informacion esta ya disponible en todo mi dashbord
+        ya que todos extienden de este layout
+    -->
+    {% set dataSesion =  dataLogin %}
+
+  
+    {% include 'includes/preloader.html' %}
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <div class="brand-logo">
+                <a href="/cpanel">
+                    <b class="logo-abbr"  style="margin-left: -27px;">
+                        Iberonex
+                    </b>
+                    <span class="brand-title">
+                        <img src="{{url_for('static', filename ='images/logo_blue.png') }}" alt="Logo" style="width: 200px;
+                        margin-top: -15px;">
+                    </span>
+                </a>
+            </div>
+        </div>
+        
+        {% include 'includes/menu_horizonta.html' %}
+        
+        <!---redireccionando un menu de acuerdo al nivel de usuario-->
+        {% if (dataLogin.tipoLogin ==1) %}
+            {% include 'includes/menu_vertical.html' %}
+        {% else %}
+            {% include 'includes/menu_vertical_creador.html' %}
+        {% endif %}
+
+
+
+  
+        {% block body %}
+            <div class="content-body">  
+                <div class="container-fluid">
+                    <div class="row">
+                        
+                        <div class="col-12 text-center">
+                            
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        {% endblock %}
+        
+        
+    </div>
+
+    <!--**** Scripts *************-->
+    {% include 'includes/myjs.html' %}
+
+    <!-- Custom JS -->
+    {% block customJS %} {% endblock %}
+
+</body>
+</html>
