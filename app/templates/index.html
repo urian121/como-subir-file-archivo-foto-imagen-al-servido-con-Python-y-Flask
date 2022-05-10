@@ -1,76 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>{% block Iberonex %}{% endblock %}</title>
-    {% include 'includes/mycss.html' %}
+    <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-     <!-- Custom CSS -->
-     {% block customCSS %} {% endblock %}
-</head>
-<body>
-
-    <!--
-        Declaro una variable la cual almacena toda la informacion del 
-        usuario logueado, esta informacion esta ya disponible en todo mi dashbord
-        ya que todos extienden de este layout
-    -->
-    {% set dataSesion =  dataLogin %}
-
-  
-    {% include 'includes/preloader.html' %}
-
-    <div id="main-wrapper">
-        <div class="nav-header">
-            <div class="brand-logo">
-                <a href="/cpanel">
-                    <b class="logo-abbr"  style="margin-left: -27px;">
-                        Iberonex
-                    </b>
-                    <span class="brand-title">
-                        <img src="{{url_for('static', filename ='images/logo_blue.png') }}" alt="Logo" style="width: 200px;
-                        margin-top: -15px;">
-                    </span>
-                </a>
-            </div>
-        </div>
-        
-        {% include 'includes/menu_horizonta.html' %}
-        
-        <!---redireccionando un menu de acuerdo al nivel de usuario-->
-        {% if (dataLogin.tipoLogin ==1) %}
-            {% include 'includes/menu_vertical.html' %}
-        {% else %}
-            {% include 'includes/menu_vertical_creador.html' %}
-        {% endif %}
-
-
+    <!-- Add Material CSS, replace Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename ='css/material.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='css/home.css') }}">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <title> Registrar Archivo con Python</title>
+    <link type="text/css" rel="shortcut icon" href="{{ url_for('static', filename ='imgs/logo.png') }}"/>
+    <style>
+    img{
+     width: 100%;
+     width: 200px;
+    }
+    section{
+      top: 0;
+      margin-top: -16px;
+      width: 100%;
+      color: #fff;
+      background-color: #9c27b0;
+    }
+    </style>
+  </head>
+  <body>
+    
+<section>
+  <h2 class="text-center mt-3">REGISTRAR ARCHIVO (Foto - Imágen - PDF etc..)<hr></h2>
+</section>
 
   
-        {% block body %}
-            <div class="content-body">  
-                <div class="container-fluid">
-                    <div class="row">
-                        
-                        <div class="col-12 text-center">
-                            
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-        {% endblock %}
-        
-        
+    <div class="text-center">
+      <img src="{{ url_for('static', filename ='imgs/logo.png') }}" class="rounded logo" alt="Python">
     </div>
 
-    <!--**** Scripts *************-->
-    {% include 'includes/myjs.html' %}
 
-    <!-- Custom JS -->
-    {% block customJS %} {% endblock %}
+    <div class="container mt-5">
+  <div class="row justify-content-center">
 
-</body>
+    <div class="col-md-12" style="padding:50px 50px;">
+        <form action="{{ url_for('registarArchivo') }}" method="POST" autocomplete="off" enctype="multipart/form-data">
+            <!----
+            <div class="form-group">
+                <label for="Nombre">Nombre</label>
+                <input type="text" name="estudiante" id="Nombre" class="form-control">
+            </div>
+            -->
+            
+            <div class="custom-file">
+                <input type="file" name="archivo" class="custom-file-input" required>
+                <label class="custom-file-label" for="validatedCustomFile">Seleccionar Archivo...</label>
+              </div>
+        
+            <div class="form-group mb-5 text-center mt-5">
+                <button type="submit" class="btn btn-primary btn-sm">Enviar Archivo</button>
+            </div>
+        </form>
+    </div>
+  </div>
+
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename ='js/material.min.js') }}">
+
+  </body>
 </html>
