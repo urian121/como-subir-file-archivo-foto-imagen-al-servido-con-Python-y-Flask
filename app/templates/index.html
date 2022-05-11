@@ -29,7 +29,7 @@
   <body>
     
 <section>
-  <h2 class="text-center mt-3">REGISTRAR ARCHIVO (Foto - Imágen - PDF etc..)<hr></h2>
+  <h2 class="text-center mt-3">Cómo subir archivo (Foto - Imágen - PDF etc..) a una carpeta...<hr></h2>
 </section>
 
   
@@ -43,13 +43,6 @@
 
     <div class="col-md-12" style="padding:50px 50px;">
         <form action="{{ url_for('registarArchivo') }}" method="POST" autocomplete="off" enctype="multipart/form-data">
-            <!----
-            <div class="form-group">
-                <label for="Nombre">Nombre</label>
-                <input type="text" name="estudiante" id="Nombre" class="form-control">
-            </div>
-            -->
-            
             <div class="custom-file">
                 <input type="file" name="archivo" class="custom-file-input" required>
                 <label class="custom-file-label" for="validatedCustomFile">Seleccionar Archivo...</label>
