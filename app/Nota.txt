@@ -1,0 +1,9 @@
+Hola, gracias por descargar el proyecto,
+me gustaria ver tu comentario en el canal.
+
+PASOS PARA CORRER EL PROYECTO
+
+- Descargar el royecto desde Github
+- Instalar las dependencias que ya tiene el proyecto ejecutando el
+    comando:
+    - pip install -r requirements.txt
