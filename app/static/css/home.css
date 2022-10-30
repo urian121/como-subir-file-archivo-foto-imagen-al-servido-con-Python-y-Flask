@@ -1,0 +1,18 @@
+body{
+    background-color: #fcfcfc;
+    height: 100vh;
+}
+.container{
+  width: 50%;
+  background-color: #fff !important;
+  border-radius: 10px;
+  box-shadow: 0 2.5rem 2rem -2rem hsl(200 50% 20% / 40%);
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.negrita{
+  color: black;
+}
+h2{
+  font-weight: 800;
+  line-height: 60px !important;
+}

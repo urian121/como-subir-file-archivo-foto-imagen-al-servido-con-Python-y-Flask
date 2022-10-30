@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, shrink-to-fit=no, width=device-width" name="viewport">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i|Roboto+Mono:300,400,700|Roboto+Slab:300,400,700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <!-- Add Material CSS, replace Bootstrap CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename ='css/material.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename ='css/home.css') }}">
+    <link rel="stylesheet" href="assets/css/home.css">
+    <title> Registrar Archivo con Python</title>
+    <link type="text/css" rel="shortcut icon" href="{{ url_for('static', filename ='imgs/logo.png') }}"/>
+    <style>
+    img{
+     width: 100%;
+     width: 200px;
+    }
+    section{
+      top: 0;
+      margin-top: -16px;
+      width: 100%;
+      color: #fff;
+      background-color: #9c27b0;
+    }
+    </style>
+  </head>
+  <body>
+    
+<section>
+  <h2 class="text-center mt-3">Cómo subir archivo (Foto - Imágen - PDF etc..) a una carpeta...<hr></h2>
+</section>
+
+  
+    <div class="text-center">
+      <img src="{{ url_for('static', filename ='imgs/logo.png') }}" class="rounded logo" alt="Python">
+    </div>
+
+
+    <div class="container mt-5">
+  <div class="row justify-content-center">
+
+    <div class="col-md-12" style="padding:50px 50px;">
+        <form action="{{ url_for('registarArchivo') }}" method="POST" autocomplete="off" enctype="multipart/form-data">
+            <div class="custom-file">
+                <input type="file" name="archivo" class="custom-file-input" required>
+                <label class="custom-file-label" for="validatedCustomFile">Seleccionar Archivo...</label>
+              </div>
+        
+            <div class="form-group mb-5 text-center mt-5">
+                <button type="submit" class="btn btn-primary btn-sm">Enviar Archivo</button>
+            </div>
+        </form>
+    </div>
+  </div>
+
+</div>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename ='js/material.min.js') }}">
+
+  </body>
+</html>
